@@ -195,41 +195,42 @@ section {
     border-radius: 10px;
 }
 
-/* ========= BOTÓN WHATSAPP FLOTANTE ========= */
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 65px;
-    height: 65px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,.3);
-    z-index: 9999;
-    animation: latido 1.6s infinite;
+/* ===============================
+   FIX RESPONSIVE DEFINITIVO
+   =============================== */
+* {
+    box-sizing: border-box;
 }
 
-.whatsapp-float img {
-    width: 36px;
-    height: 36px;
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-/* ANIMACIÓN LATIDO */
-@keyframes latido {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37,211,102,0.6);
+section,
+.container,
+.contact-grid,
+.contact-box {
+    max-width: 100%;
+}
+
+.contact-map iframe {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 30px 20px;
     }
-    70% {
-        transform: scale(1.08);
-        box-shadow: 0 0 0 18px rgba(37,211,102,0);
+    .contact-info a {
+        font-size: 18px;
     }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37,211,102,0);
+    .contact-info img {
+        width: 26px;
+        height: 26px;
+    }
+    .contact-map iframe {
+        height: 240px;
     }
 }
 </style>
@@ -266,43 +267,13 @@ section {
 
 <section id="servicios">
 <h2 class="section-title">Nuestros Servicios</h2>
-
 <div class="grid">
-<div class="card">
-<img src="recarga matafuego.png">
-<h3>Recarga de Matafuegos</h3>
-<p>Recarga certificada bajo normas IRAM con equipos de reemplazo.</p>
-</div>
-
-<div class="card">
-<img src="icono-matafuego-calendario.png">
-<h3>Mantenimiento Anual</h3>
-<p>Control y carga anual obligatoria según normativa vigente.</p>
-</div>
-
-<div class="card">
-<img src="senaletica.png">
-<h3>Instalación de Señalética</h3>
-<p>Colocación de cartelería fotoluminiscente reglamentaria.</p>
-</div>
-
-<div class="card">
-<img src="prueba-hidraulica.jpg">
-<h3>Prueba Hidráulica</h3>
-<p>Ensayo obligatorio para garantizar la integridad del envase.</p>
-</div>
-
-<div class="card">
-<img src="asesoramiento-tecnico.jpg">
-<h3>Asesoramiento Técnico</h3>
-<p>Relevamientos completos y cumplimientos normativos municipales.</p>
-</div>
-
-<div class="card">
-<img src="venta-matafuegos.png">
-<h3>Venta de Equipos</h3>
-<p>Provisión de equipos contra incendios para todo tipo de ambientes.</p>
-</div>
+<div class="card"><img src="recarga matafuego.png"><h3>Recarga de Matafuegos</h3><p>Recarga certificada bajo normas IRAM con equipos de reemplazo.</p></div>
+<div class="card"><img src="icono-matafuego-calendario.png"><h3>Mantenimiento Anual</h3><p>Control y carga anual obligatoria según normativa vigente.</p></div>
+<div class="card"><img src="senaletica.png"><h3>Instalación de Señalética</h3><p>Colocación de cartelería fotoluminiscente reglamentaria.</p></div>
+<div class="card"><img src="prueba-hidraulica.jpg"><h3>Prueba Hidráulica</h3><p>Ensayo obligatorio para garantizar la integridad del envase.</p></div>
+<div class="card"><img src="asesoramiento-tecnico.jpg"><h3>Asesoramiento Técnico</h3><p>Relevamientos completos y cumplimientos normativos municipales.</p></div>
+<div class="card"><img src="venta-matafuegos.png"><h3>Venta de Equipos</h3><p>Provisión de equipos contra incendios para todo tipo de ambientes.</p></div>
 </div>
 </section>
 
@@ -310,58 +281,43 @@ section {
 
 <section id="productos">
 <h2 class="section-title">Nuestros Productos</h2>
-
 <div class="grid">
-<div class="card">
-<img src="matafuegosabc.jpg">
-<h3>Matafuegos ABC</h3>
-<p>Para uso general en hogares, comercios e industrias.</p>
+<div class="card"><img src="matafuegosabc.jpg"><h3>Matafuegos ABC</h3><p>Para uso general en hogares, comercios e industrias.</p></div>
+<div class="card"><img src="recarga-de-extintores-co2.jpg"><h3>Matafuegos CO₂</h3><p>El ideal para tableros eléctricos, oficinas y áreas sensibles.</p></div>
+<div class="card"><img src="clase-k.png"><h3>Matafuegos Clase K</h3><p>Especial para cocinas industriales y aceites en combustión.</p></div>
+<div class="card"><img src="Señalética Fotoluminiscente.jpg"><h3>Señalética Fotoluminiscente</h3><p>Carteles de seguridad aprobados por norma IRAM.</p></div>
+<div class="card"><img src="Luces de Emergencia.jpg"><h3>Luces de Emergencia</h3><p>Iluminación autónoma para evacuaciones en cortes de energía.</p></div>
+<div class="card"><img src="Gabinetes Hidrantes.jpg"><h3>Gabinetes Hidrantes</h3><p>Gabinetes metálicos y plástico reforzado para interiores y exteriores.</p></div>
+<div class="card"><img src="Mangueras y Lanzas.jpg"><h3>Mangueras y Lanzas</h3><p>Equipamiento completo para sistemas hidrantes.</p></div>
+<div class="card"><img src="Rociadores-Automáticos.jpg"><h3>Rociadores Automáticos</h3><p>Sistemas de detección y supresión de incendios.</p></div>
+<div class="card"><img src="Seguridad-Industrial.jpg"><h3>Seguridad Industrial</h3><p>Elementos de protección personal y equipamiento de seguridad.</p></div>
+</div>
+</section>
+
+<div class="section-divider-visible"></div>
+
+<section id="contacto">
+<h2 class="section-title">Contacto</h2>
+<div class="contact-grid">
+<div class="contact-box contact-info">
+<h3>Comunicate con nosotros</h3>
+<a href="tel:03514814538"><img src="icon-phone.png"><span>0351 481-4538</span></a>
+<a href="mailto:urcamatafuegos@gmail.com"><img src="icon-email.png"><span>urcamatafuegos@gmail.com</span></a>
+<a href="https://wa.me/5493516713767" target="_blank"><img src="icon-whatsapp.png"><span>WhatsApp +54 9 351 671-3767</span></a>
+<div class="contact-logo"><img src="logo-urca.png" alt="URCA Matafuegos"></div>
 </div>
 
-<div class="card">
-<img src="recarga-de-extintores-co2.jpg">
-<h3>Matafuegos CO₂</h3>
-<p>El ideal para tableros eléctricos, oficinas y áreas sensibles.</p>
+<div class="contact-box contact-map">
+<h3>Encontranos en</h3>
+<iframe src="https://www.google.com/maps?q=Men%C3%A9ndez%20Pidal%203514%20C%C3%B3rdoba&output=embed" loading="lazy"></iframe>
+<a class="map-button" href="https://www.google.com/maps/dir/?api=1&destination=Men%C3%A9ndez+Pidal+3514+C%C3%B3rdoba" target="_blank">📍 Cómo llegar</a>
 </div>
-
-<div class="card">
-<img src="clase-k.png">
-<h3>Matafuegos Clase K</h3>
-<p>Especial para cocinas industriales y aceites en combustión.</p>
 </div>
+</section>
 
-<div class="card">
-<img src="Señalética Fotoluminiscente.jpg">
-<h3>Señalética Fotoluminiscente</h3>
-<p>Carteles de seguridad aprobados por norma IRAM.</p>
 </div>
-
-<div class="card">
-<img src="Luces de Emergencia.jpg">
-<h3>Luces de Emergencia</h3>
-<p>Iluminación autónoma para evacuaciones en cortes de energía.</p>
-</div>
-
-<div class="card">
-<img src="Gabinetes Hidrantes.jpg">
-<h3>Gabinetes Hidrantes</h3>
-<p>Gabinetes metálicos y plástico reforzado para interiores y exteriores.</p>
-</div>
-
-<div class="card">
-<img src="Mangueras y Lanzas.jpg">
-<h3>Mangueras y Lanzas</h3>
-<p>Equipamiento completo para sistemas hidrantes.</p>
-</div>
-
-<div class="card">
-<img src="Rociadores-Automáticos.jpg">
-<h3>Rociadores Automáticos</h3>
-<p>Sistemas de detección y supresión de incendios.</p>
-</div>
-
-<div class="card">
-<img src="Seguridad-Industrial.jpg">
+</body>
+</html>g">
 <h3>Seguridad Industrial</h3>
 <p>Elementos de protección personal y equipamiento de seguridad.</p>
 </div>
