@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus IT Solutions | Transformación Digital para PYMES Argentinas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset y Variables Futuristas */
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #9d4edd;
+            --dark-bg: #0a0e17;
+            --darker-bg: #050811;
+            --card-bg: rgba(16, 23, 41, 0.85);
+            --gradient-primary: linear-gradient(135deg, #00f3ff 0%, #9d4edd 100%);
+            --gradient-secondary: linear-gradient(135deg, #9d4edd 0%, #ff006e 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --success: #00ff88;
+            --warning: #ffbe0b;
+            --glow: 0 0 20px rgba(0, 243, 255, 0.5);
+            --glow-purple: 0 0 20px rgba(157, 78, 221, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.05) 0%, transparent 50%);
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes neonGlow {
+            0%, 100% { box-shadow: var(--glow); }
+            50% { box-shadow: 0 0 30px rgba(0, 243, 255, 0.8); }
+        }
+
+        /* Header Futurista */
+        .futuristic-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            position: relative;
+        }
+
+        .logo::after {
+            content: 'α';
+            position: absolute;
+            top: -5px;
+            right: -15px;
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            animation: pulse 2s infinite;
+        }
+
+        .nav-futuristic {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-futuristic a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-futuristic a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-futuristic a:hover::after {
+            width: 100%;
+        }
+
+        .cta-header {
+            background: var(--gradient-primary);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        /* Hero Section con Video Background */
+        .hero-futuristic {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffffff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        /* Botones Futuristas */
+        .btn-futuristic {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: var(--dark-bg);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-futuristic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-futuristic:hover::before {
+            left: 100%;
+        }
+
+        .btn-futuristic:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        /* Cards Futuristas */
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-blue);
+            box-shadow: var(--glow);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Grids Futuristas */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        /* Formulario de Lead Magnet */
+        .lead-magnet {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 60px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lead-magnet::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%);
+            animation: float 20s infinite linear;
+        }
+
+        .form-futuristic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        /* Testimonios con Efecto 3D */
+        .testimonial-slider {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateZ(20px);
+        }
+
+        /* Chatbot Flotante */
+        .chatbot-ai {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            animation: neonGlow 3s infinite;
+            box-shadow: var(--glow);
+        }
+
+        .chatbot-ai i {
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+        }
+
+        /* Popup de Salida */
+        .exit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 17, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .popup-content {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 60px;
+            max-width: 600px;
+            text-align: center;
+            border: 2px solid var(--neon-blue);
+            box-shadow: var(--glow);
+            animation: slideIn 0.5s ease;
+        }
+
+        /* Pricing Tables */
+        .pricing-table {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-table.featured {
+            border: 2px solid var(--neon-blue);
+            transform: scale(1.05);
+            box-shadow: var(--glow);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gradient-secondary);
+            color: var(--dark-bg);
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* Trust Signals */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .trust-badge {
+            background: rgba(0, 243, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Countdown Timer */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .countdown-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 80px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(0, 243, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        /* Footer Futurista */
+        .footer-futuristic {
+            background: var(--darker-bg);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .nav-futuristic {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .btn-futuristic {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Efectos Especiales */
+        .floating-element {
+            position: absolute;
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 1;
+        }
+
+        .typing-effect {
+            border-right: 3px solid var(--neon-blue);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--neon-blue) }
+        }
+    </style>
+</head>
+<body>
+    <!-- Chatbot AI Flotante -->
+    <div class="chatbot-ai" onclick="openChat()">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- Popup de Salida -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="popup-content">
+            <h2>¡Espera! 🚀</h2>
+            <p style="margin: 20px 0; font-size: 1.2rem;">¿Te vas sin tu diagnóstico IT gratuito?</p>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">Identificamos 3 vulnerabilidades críticas que el 90% de las PYMES argentinas tienen. Te las revelamos gratis.</p>
+            <form class="form-futuristic" style="grid-template-columns: 1fr;">
+                <div class="form-group">
+                    <input type="email" placeholder="Ingresa tu email" required>
+                </div>
+                <button type="submit" class="btn-futuristic">
+                    <i class="fas fa-shield-alt"></i> OBTENER DIAGNÓSTICO GRATIS
+                </button>
+            </form>
+            <button onclick="closePopup()" style="margin-top: 20px; background: none; border: none; color: var(--text-secondary); cursor: pointer;">
+                No, gracias. Prefiero arriesgarme
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="futuristic-header">
+        <div class="container header-container">
+            <div class="logo">NEXUS IT</div>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="nav-futuristic">
+                <a href="#servicios">Soluciones</a>
+                <a href="#casos">Casos de Éxito</a>
+                <a href="#precios">Precios</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+                <a href="tel:+5491123456789" class="cta-header">
+                    <i class="fas fa-phone"></i> LLAMAR AHORA
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-futuristic">
+        <!-- Elementos flotantes de fondo -->
+        <div class="floating-element" style="width: 400px; height: 400px; top: 10%; left: 5%;"></div>
+        <div class="floating-element" style="width: 300px; height: 300px; bottom: 20%; right: 10%; background: rgba(157, 78, 221, 0.1);"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title typing-effect">
+                    LA TECNOLOGÍA NO ES UN GASTO,<br>
+                    ES TU <span style="color: var(--neon-blue);">VENTAJA COMPETITIVA</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    El 78% de las PYMES argentinas pierden dinero por mala gestión IT. 
+                    Nosotros convertimos tu tecnología en un motor de crecimiento.
+                </p>
+                
+                <!-- Trust Badges Inline -->
+                <div style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <span style="background: rgba(0, 255, 136, 0.1); padding: 8px 15px; border-radius: 20px; border: 1px solid rgba(0, 255, 136, 0.3);">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i> +150 Clientes
+                    </span>
+                    <span style="background: rgba(255, 190, 11, 0.1); padding: 8px 15px; border-radius: 20px; border: 1px solid rgba(255, 190, 11, 0.3);">
+                        <i class="fas fa-medal" style="color: var(--warning);"></i> Certificados AWS
+                    </span>
+                    <span style="background: rgba(0, 243, 255, 0.1); padding: 8px 15px; border-radius: 20px; border: 1px solid rgba(0, 243, 255, 0.3);">
+                        <i class="fas fa-bolt" style="color: var(--neon-blue);"></i> Respuesta en 15 min
+                    </span>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">+47%</span>
+                        <span class="stat-label">Productividad</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">-63%</span>
+                        <span class="stat-label">Tiempo de inactividad</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime garantizado</span>
+                    </div>
+                </div>
+                
+                <!-- Countdown para oferta -->
+                <div style="margin: 40px 0;">
+                    <p style="color: var(--neon-blue); font-weight: 700; margin-bottom: 15px;">
+                        <i class="fas fa-clock"></i> OFERTA TERMINA EN:
+                    </p>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">23</div>
+                            <div>Horas</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">59</div>
+                            <div>Minutos</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">59</div>
+                            <div>Segundos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Principal con Urgencia -->
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <button class="btn-futuristic" onclick="openCalendar()">
+                        <i class="fas fa-calendar-check"></i> AGENDAR DIAGNÓSTICO GRATIS
+                    </button>
+                    <button class="btn-futuristic" style="background: var(--gradient-secondary);" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> WHATSAPP INMEDIATO
+                    </button>
+                </div>
+                
+                <!-- Garantía -->
+                <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px; color: var(--text-secondary);">
+                    <i class="fas fa-shield-alt" style="color: var(--success); font-size: 1.5rem;"></i>
+                    <span><strong>Garantía 100% de satisfacción</strong> o te devolvemos tu dinero. Sin preguntas.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet Section -->
+    <section id="leadMagnet">
+        <div class="container">
+            <div class="lead-magnet">
+                <h2 style="text-align: center; margin-bottom: 20px; font-size: 2.5rem;">
+                    <i class="fas fa-gift"></i> DESCUBRE LAS 5 VULNERABILIDADES QUE TODO HACKER EXPLOTA EN PYMES
+                </h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px; font-size: 1.2rem;">
+                    Descarga gratis nuestro informe de ciberseguridad (valorado en $25.000) que ya ayudó a 347 empresas
+                </p>
+                
+                <form class="form-futuristic" id="leadForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email corporativo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="WhatsApp (con código de área)" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre de tu empresa" required>
+                    </div>
+                    <button type="submit" class="btn-futuristic" style="grid-column: 1 / -1;">
+                        <i class="fas fa-download"></i> DESCARGAR INFORME GRATIS + DIAGNÓSTICO
+                    </button>
+                </form>
+                
+                <!-- Social Proof -->
+                <div class="social-proof">
+                    <div style="display: flex; align-items: center;">
+                        <div style="display: flex; margin-right: -10px;">
+                            <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; border: 2px solid var(--dark-bg);">A</div>
+                            <div style="width: 35px; height: 35px; border-radius: 50%; background: var(--gradient-secondary); display: flex; align-items: center; justify-content: center; border: 2px solid var(--dark-bg); margin-left: -10px;">M</div>
+                            <div style="width: 35px; height: 35px; border-radius: 50%; background: #ff006e; display: flex; align-items: center; justify-content: center; border: 2px solid var(--dark-bg); margin-left: -10px;">L</div>
+                        </div>
+                        <div style="margin-left: 15px;">
+                            <div style="font-weight: 700;">+347 descargas esta semana</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Empresas como la tuya ya lo tienen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Premium -->
+    <section id="servicios">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 20px; font-size: 3rem;">
+                SOLUCIONES <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QUE ESCALAN</span> CON TU NEGOCIO
+            </h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 60px; font-size: 1.2rem;">
+                No vendemos productos, implementamos ecosistemas tecnológicos que generan ROI medible
+            </p>
+            
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Business Intelligence</h3>
+                    <p style="color: var(--text-secondary); margin: 20px 0;">Inteligencia artificial que analiza tus datos y predice tendencias del mercado argentino.</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 25px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Análisis predictivo de ventas</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Detección automatizada de fraudes</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> Dashboard ejecutivo en tiempo real</li>
+                    </ul>
+                    <button class="btn-futuristic" style="background: transparent; border: 1px solid var(--neon-blue); width: 100%;">
+                        <i class="fas fa-chart-line"></i> VER CASE STUDY
+                    </button>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Cyber Defense Suite</h3>
+                    <p style="color: var(--text-secondary); margin: 20px 0;">Protección 360° contra amenazas digitales con cobertura de responsabilidad civil incluida.</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 25px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Seguro de ciberriesgos incluido</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Pentesting continuo</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> Capacitación a empleados</li>
+                    </ul>
+                    <button class="btn-futuristic" style="background: transparent; border: 1px solid var(--neon-blue); width: 100%;">
+                        <i class="fas fa-lock"></i> TEST DE VULNERABILIDAD GRATIS
+                    </button>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Digital Transformation Accelerator</h3>
+                    <p style="color: var(--text-secondary); margin: 20px 0;">Migración cloud con ROI garantizado en 90 días. Incluye optimización de costos AWS/Azure.</p>
+                    <ul style="color: var(--text-secondary); margin-bottom: 25px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> ROI garantizado por contrato</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--success);"></i> Ahorro promedio del 40% en servicios cloud</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> Migración sin downtime</li>
+                    </ul>
+                    <button class="btn-futuristic" style="background: transparent; border: 1px solid var(--neon-blue); width: 100%;">
+                        <i class="fas fa-calculator"></i> CALCULAR AHORRO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tables -->
+    <section id="precios" style="background: var(--darker-bg);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 20px; font-size: 3rem;">
+                PLANES QUE <span style="background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SE AUTOFINANCIAN</span>
+            </h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 60px; font-size: 1.2rem;">
+                El 92% de nuestros clientes recuperan su inversión en menos de 6 meses
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Plan Básico -->
+                <div class="pricing-table">
+                    <h3 style="margin-bottom: 15px;">ESSENTIAL</h3>
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 3rem; font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$89.990</span>
+                        <span style="color: var(--text-secondary);">/mes</span>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Perfecto para empresas de 5-15 empleados</p>
+                    
+                    <ul style="margin-bottom: 40px;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Soporte remoto 8x5
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Monitoreo básico de redes
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Backup diario
+                        </li>
+                    </ul>
+                    
+                    <button class="btn-futuristic" style="width: 100%;">
+                        CONTRATAR PLAN
+                    </button>
+                </div>
+                
+                <!-- Plan Recomendado -->
+                <div class="pricing-table featured">
+                    <div class="pricing-badge">MÁS POPULAR</div>
+                    <h3 style="margin-bottom: 15px;">PROFESSIONAL</h3>
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 3rem; font-weight: 900; background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$149.990</span>
+                        <span style="color: var(--text-secondary);">/mes</span>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Ideal para empresas en crecimiento (16-50 empleados)</p>
+                    
+                    <ul style="margin-bottom: 40px;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            <strong>TODO del plan Essential +</strong>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Soporte 24/7 con respuesta en 15 min
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Ciberseguridad avanzada
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            Consultoría estratégica mensual
+                        </li>
+                    </ul>
+                    
+                    <button class="btn-futuristic" style="width: 100%; background: var(--gradient-secondary);">
+                        <i class="fas fa-rocket"></i> COMENZAR AHORA
+                    </button>
+                    
+                    <div style="text-align: center; margin-top: 20px; color: var(--success);">
+                        <i class="fas fa-gem"></i> 87% de los clientes empiezan aquí
+                    </div>
+                </div>
+                
+                <!-- Plan Enterprise -->
+                <div class="pricing-table">
+                    <h3 style="margin-bottom: 15px;">ENTERPRISE</h3>
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 3rem; font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Personalizado</span>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Para empresas de 50+ empleados o necesidades específicas</p>
+                    
+                    <ul style="margin-bottom: 40px;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            <strong>TODO del plan Professional +</strong>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            AI Business Intelligence
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            CIO as a Service
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+                            <i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i>
+                            SLA 99.99% garantizado
+                        </li>
+                    </ul>
+                    
+                    <button class="btn-futuristic" style="width: 100%;">
+                        SOLICITAR COTIZACIÓN
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i class="fas fa-award" style="color: var(--neon-blue);"></i>
+                    Microsoft Gold Partner
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt" style="color: var(--success);"></i>
+                    ISO 27001 Certified
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-building" style="color: var(--neon-purple);"></i>
+                    10+ Años en el Mercado
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-users" style="color: var(--warning);"></i>
+                    +150 Empresas Argentinas
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-futuristic">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 60px;">
+                <div>
+                    <div class="logo" style="font-size: 2.5rem; margin-bottom: 20px;">NEXUS IT</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                        Transformamos la tecnología de PYMES argentinas en ventajas competitivas medibles.
+                    </p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 25px; font-size: 1.3rem;">Contacto Directo</h4>
+                    <div style="color: var(--text-secondary);">
+                        <p style="margin-bottom: 15px;"><i class="fas fa-phone" style="color: var(--neon-blue); margin-right: 10px;"></i> +54 9 11 2345-6789</p>
+                        <p style="margin-bottom: 15px;"><i class="fas fa-envelope" style="color: var(--neon-blue); margin-right: 10px;"></i> ventas@nexusit.com.ar</p>
+                        <p><i class="fas fa-map-marker-alt" style="color: var(--neon-blue); margin-right: 10px;"></i> Puerto Madero, CABA</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 25px; font-size: 1.3rem;">Recursos Gratis</h4>
+                    <div style="color: var(--text-secondary);">
+                        <p style="margin-bottom: 15px;"><a href="#" style="color: var(--text-secondary); text-decoration: none;"><i class="fas fa-file-alt" style="margin-right: 10px;"></i> Checklist Seguridad IT</a></p>
+                        <p style="margin-bottom: 15px;"><a href="#" style="color: var(--text-secondary); text-decoration: none;"><i class="fas fa-calculator" style="margin-right: 10px;"></i> Calculadora de ROI IT</a></p>
+                        <p><a href="#" style="color: var(--text-secondary); text-decoration: none;"><i class="fas fa-video" style="margin-right: 10px;"></i> Webinar: Cloud en Argentina</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 30px; text-align: center; color: var(--text-secondary);">
+                <p>© 2024 Nexus IT Solutions. Todos los derechos reservados. Diseñado específicamente para el mercado argentino.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    Los resultados pueden variar. Todas las métricas están basadas en casos reales de clientes argentinos.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Timer Countdown
+        function updateCountdown() {
+            const now = new Date();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(23, 59, 59, 999);
+            
+            const diff = tomorrow - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Exit Intent Popup
+        document.addEventListener('mouseout', function(e) {
+            if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
+                setTimeout(() => {
+                    if (!localStorage.getItem('popupShown')) {
+                        document.getElementById('exitPopup').style.display = 'flex';
+                        localStorage.setItem('popupShown', 'true');
+                    }
+                }, 500);
+            }
+        });
+        
+        function closePopup() {
+            document.getElementById('exitPopup').style.display = 'none';
+        }
+        
+        // WhatsApp Integration
+        function openWhatsApp() {
+            const message = "Hola Nexus IT, vi su página web y quiero más información sobre sus servicios IT para mi empresa.";
+            window.open(`https://wa.me/5491123456789?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // Calendar Integration
+        function openCalendar() {
+            window.open('https://calendly.com/nexus-it/diagnostico', '_blank');
+        }
+        
+        // Chatbot Simulation
+        function openChat() {
+            alert("¡Hola! Soy NEX-AI, el asistente de Nexus IT. ¿En qué puedo ayudarte hoy?\n\n1. Solicitar diagnóstico gratis\n2. Ver precios\n3. Hablar con un humano");
+            const option = prompt("Elige una opción (1, 2 o 3):");
+            if (option === '1') openCalendar();
+            else if (option === '2') window.location.hash = '#precios';
+            else if (option === '3') openWhatsApp();
+        }
+        
+        // Form Submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("¡Perfecto! Hemos recibido tu solicitud. En los próximos 15 minutos te enviaremos el informe a tu email y un especialista se contactará por WhatsApp.");
+            // Aquí iría la integración con tu CRM/Email Marketing
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideIn 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos para animación
+        document.querySelectorAll('.service-card, .pricing-table, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

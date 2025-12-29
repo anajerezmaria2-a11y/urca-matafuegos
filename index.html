@@ -2,290 +2,337 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>URCA Matafuegos – Seguridad Contra Incendios</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URCA Matafuegos – Seguridad Contra Incendios Profesional</title>
+<meta name="description" content="URCA Matafuegos: Más de 20 años de experiencia en seguridad contra incendios. Soluciones profesionales en Córdoba.">
+<meta name="keywords" content="matafuegos, seguridad contra incendios, extintores, recarga matafuegos, Córdoba">
 <style>
-/* ========= RESET Y BASE ========= */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background: #f6f6f6;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     color: #333;
-    width: 100%;
-    max-width: 100vw;
-    /* REMOVEMOS overflow-x: hidden del body */
+    line-height: 1.6;
 }
 
-/* ========= NAVBAR STICKY FUNCIONAL ========= */
+/* ========= NAVBAR MEJORADA ========= */
 nav {
-    background: #9b0000;
-    padding: 15px 20px;
+    background: linear-gradient(135deg, #9b0000 0%, #c40000 100%);
+    padding: 15px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    position: fixed; /* Cambiamos a fixed para mejor compatibilidad */
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 1000;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
-
-/* Añadimos padding al body para compensar el menú fixed */
-body {
-    padding-top: 70px; /* Altura aproximada del menú */
-}
-
-@media (max-width: 768px) {
-    nav {
-        padding: 12px 15px;
-    }
-    body {
-        padding-top: 60px; /* Menos padding en móvil */
-    }
-}
-
 nav a {
     color: white;
     font-size: 16px;
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    white-space: nowrap;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px;
     transition: all 0.3s ease;
-    border-radius: 5px;
+    position: relative;
 }
-
 nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
 }
-
-/* Efecto para el enlace activo (scroll) */
-nav a.active {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: white;
+    transition: width 0.3s ease;
+}
+nav a:hover::after {
+    width: 70%;
 }
 
+/* ========= RESPONSIVE PARA NAVBAR ========= */
 @media (max-width: 768px) {
     nav {
         gap: 10px;
-        padding: 12px 15px;
-        justify-content: space-around;
+        padding: 10px 0;
     }
     
     nav a {
         font-size: 14px;
-        padding: 6px 8px;
+        padding: 6px 12px;
     }
 }
 
 @media (max-width: 480px) {
     nav {
         gap: 8px;
-        padding: 10px 12px;
     }
     
     nav a {
         font-size: 13px;
-        padding: 5px 6px;
+        padding: 5px 10px;
     }
 }
 
-/* ========= PORTADA ========= */
+/* ========= PORTADA RESPONSIVE ========= */
 .hero {
     background: url('portada-ursa.jpg') center/cover no-repeat;
-    height: 380px;
-    width: 100%;
-    margin-top: -70px; /* Compensa el padding-top del body */
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 @media (max-width: 768px) {
     .hero {
         height: 250px;
-        margin-top: -60px;
     }
 }
 
-/* ========= CONTENEDOR PRINCIPAL ========= */
+@media (max-width: 480px) {
+    .hero {
+        height: 200px;
+    }
+}
+
+/* ========= CONTENEDOR RESPONSIVE ========= */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 40px auto;
     padding: 0 15px;
+    box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        margin: 30px auto;
-        padding: 0 15px;
-    }
-}
-
-/* ========= SECCIONES ========= */
+/* ========= SECCIONES RESPONSIVE ========= */
 section {
     background: white;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     margin-bottom: 40px;
-    width: 100%;
-    /* Removemos overflow: hidden que puede interferir */
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #9b0000, #c40000);
 }
 
 @media (max-width: 768px) {
     section {
-        padding: 20px 15px;
+        padding: 20px;
         margin-bottom: 30px;
-        border-radius: 10px;
-    }
-    
-    section#about {
-        padding: 20px 15px;
     }
 }
 
-/* ========= TÍTULOS ========= */
-.section-title {
+/* ========= TÍTULOS RESPONSIVE ========= */
+h2 {
     text-align: center;
-    font-size: 28px;
+    font-size: 2rem;
     color: #9b0000;
     margin-bottom: 30px;
-    padding: 0 10px;
+    position: relative;
+    padding-bottom: 15px;
     word-wrap: break-word;
+}
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #9b0000, #c40000);
+    border-radius: 2px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #9b0000;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+    word-wrap: break-word;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #9b0000, #c40000);
+    border-radius: 2px;
 }
 
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-    
-    h2 {
-        font-size: 22px !important;
-        padding: 0 10px;
+    h2, .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        padding-bottom: 12px;
     }
 }
 
-/* ========= GRILLA ========= */
+@media (max-width: 480px) {
+    h2, .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+/* ========= GRILLA RESPONSIVE ========= */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
-
-@media (max-width: 900px) {
-    .grid {
+@media(max-width: 900px) {
+    .grid { 
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 }
-
-@media (max-width: 600px) {
-    .grid {
+@media(max-width: 600px) {
+    .grid { 
         grid-template-columns: 1fr;
         gap: 15px;
-        padding: 0 5px;
     }
 }
 
-/* ========= CARDS ========= */
+/* ========= CARDS RESPONSIVE ========= */
 .card {
     background: #ffffff;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid #e3e3e3;
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    border-color: #9b0000;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #9b0000, #c40000);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+.card:hover::before {
+    transform: scaleX(1);
+}
 .card img {
-    height: 150px;
+    height: 120px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     object-fit: contain;
-    max-width: 100%;
+    transition: transform 0.3s ease;
 }
-
+.card:hover img {
+    transform: scale(1.05);
+}
 .card h3 {
-    font-size: 18px;
+    margin-top: auto;
+    font-size: 1.2rem;
     color: #9b0000;
     margin-bottom: 10px;
-    margin-top: auto;
+    font-weight: 600;
     word-wrap: break-word;
 }
-
 .card p {
-    font-size: 14px;
-    line-height: 1.4;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    word-wrap: break-word;
 }
 
 @media (max-width: 768px) {
     .card {
-        padding: 15px;
+        padding: 20px;
     }
     
     .card img {
-        height: 120px;
+        height: 100px;
     }
     
     .card h3 {
-        font-size: 16px;
+        font-size: 1.1rem;
+    }
+    
+    .card p {
+        font-size: 0.9rem;
     }
 }
 
-/* ========= SEPARADOR ========= */
+/* ========= SEPARADOR RESPONSIVE ========= */
 .section-divider-visible {
     height: 1px;
-    background: linear-gradient(to right, transparent, #c2c2c2, transparent);
-    margin: 30px auto;
-    width: 90%;
-    max-width: 1200px;
+    background: linear-gradient(to right, transparent, #9b0000, transparent);
+    margin: 40px 0;
+    position: relative;
+}
+.section-divider-visible::before {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: #9b0000;
+    padding: 0 10px;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
     .section-divider-visible {
-        margin: 20px auto;
-        width: 95%;
+        margin: 30px 0;
     }
 }
 
-/* ========= CONTACTO ========= */
+/* ========= CONTACTO RESPONSIVE ========= */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    width: 100%;
 }
-
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-grid {
-        gap: 20px;
     }
 }
 
@@ -293,66 +340,90 @@ section {
     background: #ffffff;
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid #e3e3e3;
-    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
 }
-
-@media (max-width: 768px) {
-    .contact-box {
-        padding: 20px 15px;
-    }
+.contact-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #9b0000, #c40000);
 }
 
 .contact-info h3 {
     color: #9b0000;
-    font-size: 22px;
+    font-size: 1.5rem;
     margin-bottom: 20px;
-    font-weight: bold;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
     word-wrap: break-word;
 }
-
-@media (max-width: 768px) {
-    .contact-info h3 {
-        font-size: 20px;
-        text-align: center;
-    }
+.contact-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #9b0000;
 }
 
 .contact-info a {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 18px;
-    margin-bottom: 15px;
+    gap: 15px;
+    font-size: 1rem;
+    margin-bottom: 20px;
     color: #9b0000;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(155, 0, 0, 0.05);
     word-wrap: break-word;
-    overflow-wrap: break-word;
+}
+.contact-info a:hover {
+    background: rgba(155, 0, 0, 0.1);
+    transform: translateX(5px);
 }
 
 .contact-info a span {
     color: #333;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 600;
+    flex-grow: 1;
+    font-size: 0.95rem;
 }
 
 .contact-info img {
     width: 24px;
     height: 24px;
-    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+.contact-info a:hover img {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
-    .contact-info a {
-        font-size: 16px;
-        gap: 10px;
+    .contact-box {
+        padding: 20px;
     }
     
-    .contact-info a span {
-        font-size: 14px;
-        word-break: break-all;
+    .contact-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-info a {
+        font-size: 0.9rem;
+        padding: 10px;
+        gap: 12px;
     }
     
     .contact-info img {
@@ -361,33 +432,48 @@ section {
     }
 }
 
-/* LOGO EN CONTACTO */
+/* LOGO EN CONTACTO RESPONSIVE */
 .contact-logo {
     margin-top: 25px;
     text-align: center;
-    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #e3e3e3;
 }
 
 .contact-logo img {
-    max-width: 200px;
+    max-width: 180px;
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease;
 }
-
-/* MAPA */
-.contact-map h3 {
-    color: #9b0000;
-    font-size: 22px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    word-wrap: break-word;
+.contact-logo img:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
-    .contact-map h3 {
-        font-size: 20px;
-        text-align: center;
+    .contact-logo img {
+        max-width: 150px;
     }
+}
+
+/* MAPA RESPONSIVE */
+.contact-map h3 {
+    color: #9b0000;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+    word-wrap: break-word;
+}
+.contact-map h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #9b0000;
 }
 
 .contact-map iframe {
@@ -395,7 +481,17 @@ section {
     height: 250px;
     border: 0;
     border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.contact-map iframe:hover {
+    transform: scale(1.01);
+}
+
+@media (max-width: 768px) {
+    .contact-map iframe {
+        height: 200px;
+    }
 }
 
 .map-button {
@@ -403,55 +499,61 @@ section {
     margin-top: 15px;
     padding: 12px;
     text-align: center;
-    background: #9b0000;
+    background: linear-gradient(135deg, #9b0000 0%, #c40000 100%);
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
-    border-radius: 10px;
-    font-size: 16px;
-    width: 100%;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.95rem;
+}
+.map-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(155, 0, 0, 0.2);
+}
+.map-button::after {
+    content: '→';
+    position: absolute;
+    right: 15px;
+    opacity: 0;
     transition: all 0.3s ease;
 }
-
-.map-button:hover {
-    background: #7a0000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.map-button:hover::after {
+    opacity: 1;
+    right: 10px;
 }
 
-@media (max-width: 768px) {
-    .map-button {
-        padding: 10px;
-        font-size: 14px;
-    }
-}
-
-/* ========= BOTÓN WHATSAPP FLOTANTE ========= */
+/* ========= BOTÓN WHATSAPP FLOTANTE RESPONSIVE ========= */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 60px;
     height: 60px;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     animation: latido 1.6s infinite;
     transition: all 0.3s ease;
 }
-
 .whatsapp-float:hover {
     transform: scale(1.1);
-    box-shadow: 0 10px 25px rgba(0,0,0,.4);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp-float img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+.whatsapp-float:hover img {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -468,83 +570,97 @@ section {
     }
 }
 
-/* ANIMACIÓN LATIDO */
+/* ANIMACIÓN LATIDO MEJORADA */
 @keyframes latido {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37,211,102,0.6);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     }
     70% {
-        transform: scale(1.08);
-        box-shadow: 0 0 0 15px rgba(37,211,102,0);
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(37,211,102,0);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
 }
 
-/* ========= MEJORAS ESPECÍFICAS PARA TEXTO ========= */
-p {
-    line-height: 1.6;
-    margin-bottom: 15px;
+/* ========= FOOTER RESPONSIVE ========= */
+footer {
+    background: linear-gradient(135deg, #333 0%, #222 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 50px;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+footer p {
+    margin: 8px 0;
+    color: #ccc;
+    font-size: 0.9rem;
     word-wrap: break-word;
 }
-
-section#about p {
-    padding: 0 5px;
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #9b0000, transparent);
+    margin: 15px auto;
+    width: 150px;
 }
 
 @media (max-width: 768px) {
-    p {
-        font-size: 14px;
-        line-height: 1.5;
+    footer {
+        padding: 25px 10px;
+        margin-top: 40px;
     }
     
-    section#about p {
-        padding: 0;
+    footer p {
+        font-size: 0.85rem;
+    }
+    
+    .footer-divider {
+        width: 120px;
     }
 }
 
-/* ========= CORRECCIÓN ESPECÍFICA PARA EL DESPLAZAMIENTO ========= */
-.container > * {
-    max-width: 100%;
-}
-
-/* ========= MEJORA PARA IMÁGENES RESPONSIVAS ========= */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ========= CORRECCIÓN PARA LAS CARDS EN MOBILE ========= */
+/* ========= MEJORAS GENERALES PARA MOBILE ========= */
 @media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 0 10px;
+        margin: 30px auto;
+    }
+    
+    section {
+        padding: 15px;
+    }
+    
     .card {
-        margin: 0 auto;
-        max-width: 95%;
+        padding: 15px;
     }
     
     .contact-box {
-        max-width: 95%;
-        margin: 0 auto;
+        padding: 15px;
     }
-}
-
-/* ========= PREVENIR DESBORDAMIENTO HORIZONTAL ========= */
-html {
-    overflow-x: hidden;
-}
-
-body {
-    overflow-x: hidden;
-    position: relative;
+    
+    .contact-info a {
+        padding: 8px;
+        margin-bottom: 15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<nav id="mainNav">
+<nav>
     <a href="#about">Quiénes Somos</a>
     <a href="#servicios">Servicios</a>
     <a href="#productos">Productos</a>
@@ -560,9 +676,9 @@ body {
 
 <p>URCA Matafuegos cuenta con más de 20 años de experiencia ofreciendo soluciones profesionales para la prevención, control y combate de incendios. Desde nuestros inicios brindamos un servicio integral y confiable a empresas, industrias, edificios, comercios, instituciones y hogares, garantizando la máxima seguridad en cada instalación.</p>
 
-<p>Estamos ubicados en la localidad de Córdoba, y realizamos envíos de nuestros productos y equipamiento a todo el país.</p>
+<p>Estamos ubicados en la localidad de Córdoba, atendiendo principalmente a clientes en la ciudad y áreas cercanas, ofreciendo un servicio personalizado y de calidad en cada intervención.</p>
 
-<p>Todos nuestros servicios, procesos de recarga y mantenimiento se realizan cumpliendo estrictamente con las normas IRAM, así como con las ordenanzas y exigencias municipales vigentes en la Provincia de Córdoba y en todo el país. Esto incluye documentación, sellado oficial, certificaciones, control de calidad, trazabilidad y procedimientos técnicos avalados por profesionales del rubro.</p>
+<p>Todos nuestros servicios, procesos de recarga y mantenimiento se realizan con los más altos estándares de calidad y seguridad, cumpliendo con las ordenanzas y exigencias municipales vigentes en la Provincia de Córdoba. Esto incluye documentación completa, sellado oficial, certificaciones, control de calidad, trazabilidad y procedimientos técnicos avalados por profesionales del rubro con amplia experiencia en el sector.</p>
 
 <p>Además de la recarga y venta de matafuegos, ofrecemos instalación de gabinetes, señalética reglamentaria, sistemas de hidrantes, detección básica y planes completos de evacuación. También realizamos relevamientos y asesoramiento técnico especializado para garantizar que cada cliente cuente con el equipamiento adecuado según el nivel de riesgo y el tipo de ambiente.</p>
 
@@ -576,39 +692,39 @@ body {
 
 <div class="grid">
 <div class="card">
-<img src="recarga matafuego.png" alt="Recarga de Matafuegos">
+<img src="recarga matafuego.png">
 <h3>Recarga de Matafuegos</h3>
-<p>Recarga certificada bajo normas IRAM con equipos de reemplazo.</p>
+<p>Recarga profesional con equipos de reemplazo garantizando calidad y seguridad en cada intervención.</p>
 </div>
 
 <div class="card">
-<img src="icono-matafuego-calendario.png" alt="Mantenimiento Anual">
+<img src="icono-matafuego-calendario.png">
 <h3>Mantenimiento Anual</h3>
-<p>Control y carga anual obligatoria según normativa vigente.</p>
+<p>Control y carga anual obligatoria según normativa vigente, asegurando el correcto funcionamiento.</p>
 </div>
 
 <div class="card">
-<img src="senaletica.png" alt="Instalación de Señalética">
+<img src="senaletica.png">
 <h3>Instalación de Señalética</h3>
-<p>Colocación de cartelería fotoluminiscente reglamentaria.</p>
+<p>Colocación de cartelería fotoluminiscente reglamentaria para una correcta señalización.</p>
 </div>
 
 <div class="card">
-<img src="prueba-hidraulica.jpg" alt="Prueba Hidráulica">
+<img src="prueba-hidraulica.jpg">
 <h3>Prueba Hidráulica</h3>
-<p>Ensayo obligatorio para garantizar la integridad del envase.</p>
+<p>Ensayo obligatorio para garantizar la integridad del envase y máxima seguridad.</p>
 </div>
 
 <div class="card">
-<img src="asesoramiento-tecnico.jpg" alt="Asesoramiento Técnico">
+<img src="asesoramiento-tecnico.jpg">
 <h3>Asesoramiento Técnico</h3>
-<p>Relevamientos completos y cumplimientos normativos municipales.</p>
+<p>Relevamientos completos y cumplimientos normativos municipales para cada tipo de establecimiento.</p>
 </div>
 
 <div class="card">
-<img src="venta-matafuegos.png" alt="Venta de Equipos">
+<img src="venta-matafuegos.png">
 <h3>Venta de Equipos</h3>
-<p>Provisión de equipos contra incendios para todo tipo de ambientes.</p>
+<p>Provisión de equipos contra incendios para todo tipo de ambientes y necesidades específicas.</p>
 </div>
 </div>
 </section>
@@ -620,55 +736,55 @@ body {
 
 <div class="grid">
 <div class="card">
-<img src="matafuegosabc.jpg" alt="Matafuegos ABC">
+<img src="matafuegosabc.jpg">
 <h3>Matafuegos ABC</h3>
 <p>Para uso general en hogares, comercios e industrias.</p>
 </div>
 
 <div class="card">
-<img src="recarga-de-extintores-co2.jpg" alt="Matafuegos CO₂">
+<img src="recarga-de-extintores-co2.jpg">
 <h3>Matafuegos CO₂</h3>
 <p>El ideal para tableros eléctricos, oficinas y áreas sensibles.</p>
 </div>
 
 <div class="card">
-<img src="clase-k.png" alt="Matafuegos Clase K">
+<img src="clase-k.png">
 <h3>Matafuegos Clase K</h3>
 <p>Especial para cocinas industriales y aceites en combustión.</p>
 </div>
 
 <div class="card">
-<img src="Señalética Fotoluminiscente.jpg" alt="Señalética Fotoluminiscente">
+<img src="Señalética Fotoluminiscente.jpg">
 <h3>Señalética Fotoluminiscente</h3>
 <p>Carteles de seguridad aprobados por norma IRAM.</p>
 </div>
 
 <div class="card">
-<img src="Luces de Emergencia.jpg" alt="Luces de Emergencia">
+<img src="Luces de Emergencia.jpg">
 <h3>Luces de Emergencia</h3>
 <p>Iluminación autónoma para evacuaciones en cortes de energía.</p>
 </div>
 
 <div class="card">
-<img src="Gabinetes Hidrantes.jpg" alt="Gabinetes Hidrantes">
+<img src="Gabinetes Hidrantes.jpg">
 <h3>Gabinetes Hidrantes</h3>
 <p>Gabinetes metálicos y plástico reforzado para interiores y exteriores.</p>
 </div>
 
 <div class="card">
-<img src="Mangueras y Lanzas.jpg" alt="Mangueras y Lanzas">
+<img src="Mangueras y Lanzas.jpg">
 <h3>Mangueras y Lanzas</h3>
 <p>Equipamiento completo para sistemas hidrantes.</p>
 </div>
 
 <div class="card">
-<img src="Rociadores-Automáticos.jpg" alt="Rociadores Automáticos">
+<img src="Rociadores-Automáticos.jpg">
 <h3>Rociadores Automáticos</h3>
 <p>Sistemas de detección y supresión de incendios.</p>
 </div>
 
 <div class="card">
-<img src="Seguridad-Industrial.jpg" alt="Seguridad Industrial">
+<img src="Seguridad-Industrial.jpg">
 <h3>Seguridad Industrial</h3>
 <p>Elementos de protección personal y equipamiento de seguridad.</p>
 </div>
@@ -685,19 +801,19 @@ body {
 <div class="contact-box contact-info">
 <h3>Comunicate con nosotros</h3>
 
-<a href="tel:03514814538">
-<img src="icon-phone.png" alt="Teléfono">
-<span>0351 481-4538</span>
+<a href="tel:+5493518360030">
+<img src="icon-phone.png">
+<span>+54 9 351 836-0030</span>
 </a>
 
 <a href="mailto:urcamatafuegos@gmail.com">
-<img src="icon-email.png" alt="Email">
+<img src="icon-email.png">
 <span>urcamatafuegos@gmail.com</span>
 </a>
 
-<a href="https://wa.me/5493516713767" target="_blank">
-<img src="icon-whatsapp.png" alt="WhatsApp">
-<span>WhatsApp +54 9 351 671-3767</span>
+<a href="https://wa.me/5493518360030" target="_blank">
+<img src="icon-whatsapp.png">
+<span>WhatsApp +54 9 351 836-0030</span>
 </a>
 
 <div class="contact-logo">
@@ -711,8 +827,7 @@ body {
 
 <iframe
 src="https://www.google.com/maps?q=Men%C3%A9ndez%20Pidal%203514%20C%C3%B3rdoba&output=embed"
-loading="lazy"
-title="Ubicación URCA Matafuegos">
+loading="lazy">
 </iframe>
 
 <a class="map-button"
@@ -728,100 +843,22 @@ target="_blank">
 
 </div>
 
-<a href="https://wa.me/5493516713767"
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5493518360030"
    class="whatsapp-float"
    target="_blank"
    aria-label="WhatsApp">
     <img src="icon-whatsapp.png" alt="WhatsApp">
 </a>
 
-<script>
-// JavaScript para el menú fijo que se mueve con el scroll
-document.addEventListener('DOMContentLoaded', function() {
-    const nav = document.getElementById('mainNav');
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-    
-    // Función para actualizar el enlace activo
-    function updateActiveLink() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100; // Ajuste para el menú fijo
-            const sectionHeight = section.clientHeight;
-            
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    }
-    
-    // Efecto visual del menú al hacer scroll
-    function updateNavStyle() {
-        if (window.scrollY > 50) {
-            nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.25)';
-            nav.style.padding = '10px 20px';
-        } else {
-            nav.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-            nav.style.padding = '15px 20px';
-        }
-    }
-    
-    // Scroll suave para los enlaces del menú
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            
-            if (targetId === '#') return;
-            
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const targetPosition = targetSection.offsetTop - 70; // Compensa el menú fijo
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Actualizar URL sin recargar
-                history.pushState(null, null, targetId);
-            }
-        });
-    });
-    
-    // Event listeners
-    window.addEventListener('scroll', function() {
-        updateActiveLink();
-        updateNavStyle();
-    });
-    
-    // Inicializar
-    updateActiveLink();
-    updateNavStyle();
-    
-    // Manejar la carga de página con hash en la URL
-    if (window.location.hash) {
-        const targetSection = document.querySelector(window.location.hash);
-        if (targetSection) {
-            setTimeout(() => {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }, 100);
-        }
-    }
-});
-</script>
+<footer>
+    <div class="footer-content">
+        <p>URCA Matafuegos © 2023 - Todos los derechos reservados</p>
+        <div class="footer-divider"></div>
+        <p>Especialistas en Seguridad Contra Incendios</p>
+        <p>Menéndez Pidal 3514, Córdoba</p>
+    </div>
+</footer>
 
 </body>
 </html>
