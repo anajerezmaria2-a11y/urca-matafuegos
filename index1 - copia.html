@@ -81,12 +81,10 @@ nav a:hover::after {
     }
 }
 
-/* ========= PORTADA RESPONSIVE - CORREGIDA ========= */
+/* ========= PORTADA RESPONSIVE ========= */
 .hero {
     background: url('portada-ursa.jpg') center/cover no-repeat;
-    height: 65vh; /* Cambiado a altura relativa para PC */
-    min-height: 300px; /* Altura mínima para móvil */
-    max-height: 500px; /* Altura máxima para PC muy grande */
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,17 +94,13 @@ nav a:hover::after {
 
 @media (max-width: 768px) {
     .hero {
-        height: 40vh; /* Más baja en tablet */
-        min-height: 250px;
-        max-height: 350px;
+        height: 250px;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        height: 35vh; /* Más baja en móvil */
-        min-height: 200px;
-        max-height: 280px;
+        height: 200px;
     }
 }
 
